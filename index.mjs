@@ -11,17 +11,18 @@ app.use(express.urlencoded({extended:true}));
 
 //setting up database connection pool
 const pool = mysql.createPool({
-    host: "your_hostname",
-    user: "your_username",
-    password: "your_password",
-    database: "your_database",
+    // IMPORTANT self-note. In a real implementation, we would want to keep these fields secret. (not visible on a public github)
+    host: "edo4plet5mhv93s3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user: "pcuxo4jf4n2j8s2e",
+    password: "gbslqprom3t8n3yx",
+    database: "uoye9fgujzzheqv5",
     connectionLimit: 10,
     waitForConnections: true
 });
 
 //routes
 app.get('/', (req, res) => {
-   res.send('Hello Express app!')
+   res.render("index");
 });
 
 app.get("/dbTest", async(req, res) => {
