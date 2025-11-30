@@ -1,11 +1,44 @@
 <%- include("partials/head.ejs") %>
 
 <body>
- <h1> Quote Finder </h1>
-   <form action="/searchByKeyword">
+<h1 class="p-4 bg-info text-center"> Quote Finder </h1>
+  <hr>
+<form action="/searchByKeyword">
      Keyword: 
      <input type="text" name="keyword">
-     <button>Search by Keyword</button>
+     <button class="btn btn-primary">Search by Keyword</button>
+   </form>
+  <br>
+   <form action="/searchByAuthor">
+      Author:
+     <select name="authorId">
+      <% for (author of authors) { %>
+        <option value="<%= author.authorId %>">
+          <%= author.firstName %> <%= author.lastName %>
+        </option>
+      <% } %>
+     </select>
+     <button class="btn btn-primary">Search by Author</button>
+   </form>
+  <br>
+   <form action="/searchByCategory">
+      Category:
+     <select name="category">
+      <% for (quote of quotes) { %>
+        <option value="<%= quote.category %>">
+          <%= quote.category %>
+        </option>
+      <% } %>
+     </select>
+     <button class="btn btn-primary">Search by Category</button>
+   </form>
+   <br>
+   <form action="/searchByLikes">
+     Min Likes: 
+     <input type="number" name="min" min="0">
+     Max Likes:
+      <input type="number" name="max" min="0">
+     <button class="btn btn-primary">Search by Likes</button>
    </form>
 </body>
 
