@@ -18,6 +18,12 @@ async function getAuthorInfo() {
     authorInfo.innerHTML = `<h1> ${data[0].firstName}
                                   ${data[0].lastName} </h1>`;
 
-    authorInfo.innerHTML += `<img src="${data[0].portrait}"
-    width="200"><br>`;
+    authorInfo.innerHTML += `Date of Birth: ${data[0].dob}
+    <br>Date of Death: ${data[0].dod}
+    <br>Gender: ${data[0].sex}
+    <br>Profession: ${data[0].profession}
+    <br>Country: ${data[0].country}
+    <br>Biography: ${data[0].biography}
+    <br><img src="${data[0].portrait}" width="200">
+    `;
 }
